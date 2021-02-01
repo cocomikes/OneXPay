@@ -26,7 +26,6 @@ class AliPayReq private constructor(): IPaySend {
         fun generate(block : AliPayReq.() -> AliPayReq) : AliPayReq{
             return with(AliPayReq()){
                 block()
-                create()
             }
         }
     }

@@ -1,3 +1,4 @@
+include ':onexpay-unionpay'
 include ':onexpay-wxpay'
 include ':onexpay-alipay'
 include ':onexpay-core'

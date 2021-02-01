@@ -1,7 +1,8 @@
 # [One-X-Pay]
 
 ### 简介
-> 支持微信和支付宝两种主流支付的集成库， 两行代码实现微信支付， 三行代码实现支付宝支付
+> 支持微信，支付宝，银联等主流支付的集成库
+> 丝滑般享受，快速接入支付功能
 
 ### 引入
 
@@ -11,6 +12,8 @@
     implementation 'com.github.cocomikes.OneXPay:onexpay-wxpay:x'
     支付宝支付
     implementation 'com.github.cocomikes.OneXPay:onexpay-alipay:x'
+    银联支付
+    implementation 'com.github.cocomikes.OneXPay:onexpay-unionpay:x'
 ```
 
 ### 更新日志
@@ -147,6 +150,31 @@
             create()
         })
 ```
+
+#### 3. 银联支付使用
+```
+        OneXPay.doPay(UnionPayReq.generate {
+            mActivity = this@MainActivity
+            unionPayConfig = UnionPayConfig.builder {
+                tn = ""                 // 交易流水号
+                debugMode = false
+                build()
+            }
+            resultCallBack = object : UnionPayResultCallBack{
+                override fun paySuccess(dataOrg: String?, sign: String?, debugMode: Boolean) {
+                }
+
+                override fun payCancel() {
+                }
+
+                override fun payFail() {
+                }
+            }
+            create()
+        })
+
+```
+
 
 ### 存在的问题
 

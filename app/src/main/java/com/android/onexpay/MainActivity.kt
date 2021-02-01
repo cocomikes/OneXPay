@@ -7,6 +7,9 @@ import com.android.onexpay.alipay.AliPayReq
 import com.android.onexpay.alipay.AliPayReqSafely
 import com.android.onexpay.alipay.AliPayResultCallback
 import com.android.onexpay.core.OneXPay
+import com.android.onexpay.unionpay.UnionPayConfig
+import com.android.onexpay.unionpay.UnionPayReq
+import com.android.onexpay.unionpay.UnionPayResultCallBack
 import com.android.onexpay.wxpay.WXPayResultCallBack
 import com.android.onexpay.wxpay.WxPayConfig
 import com.android.onexpay.wxpay.WxPayReq
@@ -111,6 +114,26 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun payFail(errorCode: Int, errorMsg: String) {
+                }
+            }
+            create()
+        })
+
+        OneXPay.doPay(UnionPayReq.generate {
+            mActivity = this@MainActivity
+            unionPayConfig = UnionPayConfig.builder {
+                tn = ""
+                debugMode = false
+                build()
+            }
+            resultCallBack = object : UnionPayResultCallBack{
+                override fun paySuccess(dataOrg: String?, sign: String?, debugMode: Boolean) {
+                }
+
+                override fun payCancel() {
+                }
+
+                override fun payFail() {
                 }
             }
             create()
