@@ -1,0 +1,5 @@
+include ':onexpay-wxpay'
+include ':onexpay-alipay'
+include ':onexpay-core'
+include ':app'
+rootProject.name = "OneXPay"
