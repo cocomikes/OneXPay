@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         OneXPay.doPay(AliPayReqSafely.generate {
             mActivity = this@MainActivity
-            aliPayInfoByServer = ""
+            aliPayInfoByServer = "123"
             aliPayResultCallback = object : AliPayResultCallback{
                 override fun onPaySuccess(resultInfo: String?) {
                 }

@@ -6,7 +6,7 @@ import android.os.Message
 import android.text.TextUtils
 import android.util.Log
 
-internal class AliPayResultHandler(val mAliPayListener : AliPayResultCallback?) : Handler(Looper.getMainLooper()) {
+internal class AliPayResultHandler(private val mAliPayListener : AliPayResultCallback?) : Handler(Looper.getMainLooper()) {
     override fun handleMessage(msg: Message) {
         super.handleMessage(msg)
         when (msg.what) {
